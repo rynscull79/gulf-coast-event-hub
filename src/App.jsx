@@ -240,7 +240,7 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
   <a href="#how-it-works" className="navLink">How It Works</a>
   <a href="#services" className="navLink">Services</a>
   <a href="#request" className="navButton">Check Availability & Get Quote</a>
-  <Link to="/admin" className="navLink">Admin</Link>
+
 </nav>
       </header>
 
@@ -831,7 +831,7 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
       <a href="#how-it-works">How It Works</a>
       <a href="#services">Services</a>
       <a href="#request">Request Quote</a>
-      <Link to="/admin">Admin</Link>
+     
     </div>
   </div>
 </footer>

@@ -485,7 +485,7 @@ export default function CityHubPage({ cityKey, cityName }) {
   <a href="/#how-it-works">How It Works</a>
   <a href="/#services">Services</a>
   <a href="/#request">Request Quote</a>
-  <Link to="/admin">Admin</Link>
+  
 </div>
         </div>
       </footer>
