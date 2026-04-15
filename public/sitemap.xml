@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.gulfcoasteventhub.com/</loc>
+  </url>
+
+  <!-- City Pages -->
+  <url><loc>https://www.gulfcoasteventhub.com/pensacola-event-services</loc></url>
+  <url><loc>https://www.gulfcoasteventhub.com/orange-beach-event-services</loc></url>
+  <url><loc>https://www.gulfcoasteventhub.com/gulf-shores-event-services</loc></url>
+  <url><loc>https://www.gulfcoasteventhub.com/fairhope-event-services</loc></url>
+  <url><loc>https://www.gulfcoasteventhub.com/daphne-event-services</loc></url>
+
+</urlset>

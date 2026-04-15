@@ -489,6 +489,74 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
           </div>
         </section>
 
+        <section className="section sectionAlt">
+  <div className="sectionHeadingWrap">
+    <p className="sectionEyebrow">Popular service areas</p>
+    <h2 className="sectionTitle">Explore Event Services by City</h2>
+    <p className="sectionText">
+      Browse popular Gulf Coast service areas to explore bartenders, DJs, rentals,
+      catering, dessert stations, and more by location.
+    </p>
+  </div>
+
+  <div className="cardGrid">
+    <div className="serviceCard">
+      <div className="serviceCardContent">
+        <h3 className="cardTitle">
+          <Link to="/pensacola-event-services">Pensacola Event Services</Link>
+        </h3>
+        <p className="cardText">
+          Explore bartenders, DJs, catering, rentals, dessert stations, and more in Pensacola.
+        </p>
+      </div>
+    </div>
+
+    <div className="serviceCard">
+      <div className="serviceCardContent">
+        <h3 className="cardTitle">
+          <Link to="/orange-beach-event-services">Orange Beach Event Services</Link>
+        </h3>
+        <p className="cardText">
+          Browse event services and rentals for beach events, weddings, and private parties.
+        </p>
+      </div>
+    </div>
+
+    <div className="serviceCard">
+      <div className="serviceCardContent">
+        <h3 className="cardTitle">
+          <Link to="/gulf-shores-event-services">Gulf Shores Event Services</Link>
+        </h3>
+        <p className="cardText">
+          Find bartenders, rentals, catering, dessert stations, and more in Gulf Shores.
+        </p>
+      </div>
+    </div>
+
+    <div className="serviceCard">
+      <div className="serviceCardContent">
+        <h3 className="cardTitle">
+          <Link to="/fairhope-event-services">Fairhope Event Services</Link>
+        </h3>
+        <p className="cardText">
+          Explore wedding-friendly and private event service options in Fairhope.
+        </p>
+      </div>
+    </div>
+
+    <div className="serviceCard">
+      <div className="serviceCardContent">
+        <h3 className="cardTitle">
+          <Link to="/daphne-event-services">Daphne Event Services</Link>
+        </h3>
+        <p className="cardText">
+          Browse party and event services for birthdays, family gatherings, and more in Daphne.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
         <section className="section">
           <div className="sectionHeadingWrap">
             <p className="sectionEyebrow">Why use Gulf Coast Event Hub?</p>
