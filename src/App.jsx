@@ -309,7 +309,7 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
       <img
         src="/images/tent-rental.webp"
         alt="Outdoor tent rental setup with tables and lighting in Gulf Coast wedding venue"
-        className="heroImage heroImageSmall"
+        className="heroImage heroImageSmall heroImageTent"
       />
     </div>
 
@@ -317,7 +317,7 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
       <img
         src="/images/thirsty-dawg-machine.webp"
         alt="Frozen drink machine setup for Gulf Coast parties and events"
-        className="heroImage heroImageSmall"
+        className="heroImage heroImageSmall heroImageMachine"
       />
     </div>
   </div>
