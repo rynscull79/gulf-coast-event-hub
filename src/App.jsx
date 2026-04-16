@@ -23,7 +23,15 @@ export default function App() {
     details: "",
   });
 
-  const [submitMessage, setSubmitMessage] = useState("");
+  const [infoForm, setInfoForm] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
+
+  const [infoSubmitMessage, setInfoSubmitMessage] = useState("");
+    const [submitMessage, setSubmitMessage] = useState("");
 
  const serviceOptions = useMemo(
   () => [
@@ -260,6 +268,47 @@ trackEvent('lead_form_submit', {
   setSubmitMessage("Server error. Try again.");
 }
   };
+  const handleInfoChange = (e) => {
+    const { name, value } = e.target;
+    setInfoForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleInfoSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+      const response = await fetch(`${API_BASE_URL}/api/contact-message`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(infoForm),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error("Contact backend error:", data);
+        setInfoSubmitMessage(data.message || "Message failed.");
+        return;
+      }
+
+      setInfoSubmitMessage("Message sent successfully. We will call you within 24 hours.");
+
+      setInfoForm({
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
+    } catch (error) {
+      console.error("Contact network error:", error);
+      setInfoSubmitMessage("Server error. Please try again.");
+    }
+  };
+ 
 
   return (
     <div className="page">
@@ -679,6 +728,84 @@ trackEvent('lead_form_submit', {
                 We serve customers across the Gulf Coast, including Mobile, Gulf Shores, Orange Beach, Pensacola, and surrounding areas.
               </p>
             </div>
+          </div>
+        </section>
+
+                <section className="section">
+          <div className="requestWrap">
+            <div className="requestIntro">
+              <p className="sectionEyebrow">Need more information?</p>
+              <h2 className="sectionTitle">Want Additional Information? Send Us a Message.</h2>
+              <p className="sectionText">
+                Have a question before booking? Send us a message and we’ll reach out to help.
+                We will call you within 24 hours.
+              </p>
+
+              <div className="disclaimerBox">
+                <strong>What to expect:</strong> Send us your question and a member of our team
+                will follow up by phone within 24 hours.
+              </div>
+            </div>
+
+            <form onSubmit={handleInfoSubmit} className="formCard">
+              <div className="fieldWrap">
+                <label className="label">Full Name</label>
+                <input
+                  name="name"
+                  value={infoForm.name}
+                  onChange={handleInfoChange}
+                  placeholder="Your name"
+                  className="input"
+                  required
+                />
+              </div>
+
+              <div className="fieldWrap">
+                <label className="label">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  value={infoForm.email}
+                  onChange={handleInfoChange}
+                  placeholder="you@example.com"
+                  className="input"
+                  required
+                />
+              </div>
+
+              <div className="fieldWrap">
+  <label className="label">Phone Number</label>
+  <input
+    name="phone"
+    value={infoForm.phone}
+    onChange={handleInfoChange}
+    placeholder="Your phone number"
+    className="input"
+    required
+  />
+</div>
+
+              <div className="fieldWrap">
+                <label className="label">Message</label>
+                <textarea
+                  name="message"
+                  value={infoForm.message}
+                  onChange={handleInfoChange}
+                  placeholder="Tell us what you'd like to know."
+                  rows={5}
+                  className="textarea"
+                  required
+                />
+              </div>
+
+              {infoSubmitMessage && (
+                <p style={{ marginBottom: "16px", color: "#0d3b66", fontWeight: 700 }}>
+                  {infoSubmitMessage}
+                </p>
+              )}
+
+              <button type="submit" className="submitButton">Send Message</button>
+            </form>
           </div>
         </section>
 
