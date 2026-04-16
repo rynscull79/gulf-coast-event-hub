@@ -1,6 +1,17 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
+function trackEvent(eventName, params = {}) {
+  if (typeof window === 'undefined') return;
+  if (typeof window.gtag !== 'function') return;
+
+  window.gtag('event', eventName, {
+    page_title: document.title,
+    page_location: window.location.href,
+    ...params,
+  });
+}
+
 export default function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -168,10 +179,20 @@ image: "https://www.gulfcoasteventhub.com/images/hero-gulf-coast-event.webp",
     ]
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+ const [formStarted, setFormStarted] = useState(false);
+
+const handleChange = (e) => {
+  if (!formStarted) {
+    setFormStarted(true);
+
+    trackEvent('form_start', {
+      form_name: 'lead_form',
+    });
+  }
+
+  const { name, value } = e.target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+};
 
   const handleCheckboxChange = (service) => {
     setFormData((prev) => {
@@ -201,11 +222,21 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
 
       const data = await response.json();
 
-      if (!response.ok) {
-        console.error("Backend error:", data);
-        setSubmitMessage(data.message || "Request failed.");
-        return;
-      }
+    if (!response.ok) {
+  trackEvent('form_error', {
+    form_name: 'lead_form',
+    error_type: 'backend_error',
+  });
+
+  console.error("Backend error:", data);
+  setSubmitMessage(data.message || "Request failed.");
+  return;
+}
+
+trackEvent('lead_form_submit', {
+  form_name: 'lead_form',
+  service_type: formData.services.join(', ') || 'unknown',
+});
 
       setSubmitMessage("Request submitted successfully.");
       console.log("SUCCESS:", data);
@@ -220,9 +251,14 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
         details: "",
       });
     } catch (error) {
-      console.error("Network error:", error);
-      setSubmitMessage("Server error. Try again.");
-    }
+  trackEvent('form_error', {
+    form_name: 'lead_form',
+    error_type: 'network_error',
+  });
+
+  console.error("Network error:", error);
+  setSubmitMessage("Server error. Try again.");
+}
   };
 
   return (
@@ -266,7 +302,17 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
 </p>
 
             <div className="heroActions">
-  <a href="#request" className="primaryButton">Check Availability & Get Quote</a>
+  <a
+  href="#request"
+  className="primaryButton"
+  onClick={() =>
+    trackEvent('get_matched_click', {
+      button_location: 'hero',
+    })
+  }
+>
+  Check Availability & Get Quote
+</a>
   <a href="#how-it-works" className="secondaryButton">How It Works</a>
 </div>
 <p style={{ marginTop: "10px", fontSize: "14px", color: "#5F6B7A" }}>
@@ -677,7 +723,17 @@ const response = await fetch(`${API_BASE_URL}/api/event-requests`, {
     </p>
 
     <div className="heroActions">
-      <a href="#request" className="primaryButton">Check Availability & Get Pricing</a>
+      <a
+  href="#request"
+  className="primaryButton"
+  onClick={() =>
+    trackEvent('get_matched_click', {
+      button_location: 'cta_section',
+    })
+  }
+>
+  Check Availability & Get Pricing
+</a>
     </div>
   </div>
 </section>
