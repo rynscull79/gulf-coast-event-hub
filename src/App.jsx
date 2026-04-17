@@ -203,16 +203,21 @@ const handleChange = (e) => {
 };
 
   const handleCheckboxChange = (service) => {
-    setFormData((prev) => {
-      const exists = prev.services.includes(service);
-      return {
-        ...prev,
-        services: exists
-          ? prev.services.filter((item) => item !== service)
-          : [...prev.services, service],
-      };
-    });
-  };
+  trackEvent('service_type_select', {
+    service_type: service,
+  });
+
+  setFormData((prev) => {
+    const exists = prev.services.includes(service);
+    return {
+      ...prev,
+      services: exists
+        ? prev.services.filter((item) => item !== service)
+        : [...prev.services, service],
+    };
+  });
+};
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -1014,6 +1019,18 @@ trackEvent('lead_form_submit', {
       <a href="#how-it-works">How It Works</a>
       <a href="#services">Services</a>
       <a href="#request">Request Quote</a>
+
+      <a
+  href="mailto:infow@thirstydawgrentals.com?subject=Gulf%20Coast%20Event%20Hub%20Inquiry"
+  onClick={() =>
+    trackEvent('email_click', {
+      email_address: 'infow@thirstydawgrentals.com',
+      button_location: 'footer',
+    })
+  }
+>
+  Send us a message
+</a>
      
     </div>
   </div>
