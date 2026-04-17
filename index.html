@@ -1,14 +1,27 @@
 <!doctype html>
 <html lang="en">
   <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDFJYGMCBF"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function loadAnalytics() {
+    if (window.gtagLoaded) return;
+    window.gtagLoaded = true;
 
-  gtag('config', 'G-NDFJYGMCBF');
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-NDFJYGMCBF';
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-NDFJYGMCBF');
+  }
+
+  window.addEventListener('scroll', loadAnalytics, { once: true });
+  window.addEventListener('click', loadAnalytics, { once: true });
+  window.addEventListener('touchstart', loadAnalytics, { once: true });
 </script>
 
     <meta charset="UTF-8" />
