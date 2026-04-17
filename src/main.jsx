@@ -1,53 +1,50 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import ScrollToTop from "./ScrollToTop";
+import AdminPage from "./AdminPage";
+import SeoLandingPage from "./pages/SeoLandingPage";
+import { seoPages } from "./data/seoPages";
 import "./index.css";
-
-const AdminPage = lazy(() => import("./AdminPage"));
-const SeoLandingPage = lazy(() => import("./pages/SeoLandingPage"));
-const CityHubPage = lazy(() => import("./pages/CityHubPage"));
-const { seoPages } = await import("./data/seoPages");
-const { cityPages } = await import("./data/cityPages");
+import CityHubPage from "./pages/CityHubPage";
+import { cityPages } from "./data/cityPages";
+import ScrollToTop from "./ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <ScrollToTop />
-      <Suspense fallback={<div style={{ padding: "40px", textAlign: "center" }}>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<App />} />
+      <Routes>
+        <Route path="/" element={<App />} />
 
-          {seoPages.map((page) => (
-            <Route
-              key={page.path}
-              path={page.path}
-              element={
-                <SeoLandingPage
-                  serviceKey={page.serviceKey}
-                  cityKey={page.cityKey}
-                />
-              }
-            />
-          ))}
+        {seoPages.map((page) => (
+          <Route
+            key={page.path}
+            path={page.path}
+            element={
+              <SeoLandingPage
+                serviceKey={page.serviceKey}
+                cityKey={page.cityKey}
+              />
+            }
+          />
+        ))}
 
-          {cityPages.map((city) => (
-            <Route
-              key={city.path}
-              path={city.path}
-              element={
-                <CityHubPage
-                  cityKey={city.key}
-                  cityName={city.name}
-                />
-              }
-            />
-          ))}
+        {cityPages.map((city) => (
+          <Route
+            key={city.path}
+            path={city.path}
+            element={
+              <CityHubPage
+                cityKey={city.key}
+                cityName={city.name}
+              />
+            }
+          />
+        ))}
 
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </Suspense>
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
