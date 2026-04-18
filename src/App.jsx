@@ -346,15 +346,14 @@ trackEvent('lead_form_submit', {
         <section className="heroSection">
           <div className="heroTextWrap">
             <p className="eyebrow">Local vendor matching across the Gulf Coast</p>
-           <h1 className="heroTitle">
-  Book Event Vendors on the Gulf Coast Without the Hassle.
+<h1 className="heroTitle">
+  Stop Calling Vendors. Tell Us What You Need — We’ll Handle the Rest.
 </h1>
 
 <p className="heroText">
- Tell us what you need for your event and we’ll match you with bartenders, DJs, catering, rentals, and more across the Gulf Coast. No calling multiple vendors required.
-
+  Submit one request and get matched with bartenders, DJs, catering, rentals, and more across the Gulf Coast. 
+  No back-and-forth, no chasing availability, and no commitment until you approve your quote.
 </p>
-
             <div className="heroActions">
   <a
   href="#request"
@@ -450,10 +449,10 @@ trackEvent('lead_form_submit', {
 
             <div className="stepCard">
               <div className="stepNumber">02</div>
-              <h3 className="cardTitle">We handle the booking</h3>
-              <p className="cardText">
-                We find and secure vendors that match your event needs and availability.
-              </p>
+              <h3 className="cardTitle">Review your quote</h3>
+<p className="cardText">
+  We build a quote based on your event details, date, and services needed. You review pricing and options before anything is booked.
+</p>
             </div>
 
             <div className="stepCard">
