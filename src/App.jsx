@@ -466,6 +466,42 @@ trackEvent('lead_form_submit', {
           </div>
         </section>
 
+        <section className="section sectionAlt">
+  <div className="sectionHeadingWrap">
+    <p className="sectionEyebrow">Planning your event?</p>
+    <h2 className="sectionTitle">Start here — no matter how you’re planning your event</h2>
+
+    <p className="sectionText">
+      Whether you plan everything yourself or hire a coordinator, the hardest part is always the same:
+      finding the right vendors and getting them all lined up.
+    </p>
+  </div>
+
+  <div className="stepsGrid">
+    <div className="stepCard">
+      <h3 className="cardTitle">Planning it yourself?</h3>
+      <p className="cardText">
+        Skip hours of searching, calling, and comparing vendors. Submit one request and get matched with
+        options that fit your event, date, and location.
+      </p>
+    </div>
+
+    <div className="stepCard">
+      <h3 className="cardTitle">Working with a coordinator?</h3>
+            <p className="cardText">
+        We help you find vendors faster and explore options across the Gulf Coast — whether you're planning it yourself or working with a coordinator.
+      </p>
+    </div>
+
+    <div className="stepCard">
+      <h3 className="cardTitle">Need a coordinator too?</h3>
+            <p className="cardText">
+        We can help connect you with experienced event coordinators who fit your style, event type, and budget — so you can get the right help from the start.
+      </p>
+    </div>
+  </div>
+</section>
+
         <section id="services" className="section sectionAlt">
           <div className="sectionHeadingWrap">
             <p className="sectionEyebrow">Popular event services</p>
@@ -693,17 +729,21 @@ trackEvent('lead_form_submit', {
             </div>
 
             <div className="faqCard">
-  <h3 className="cardTitle">What makes this different from an event planner or coordinator?</h3>
-  <p className="cardText">
-    Gulf Coast Event Hub focuses on helping you request and book vendors for your event. We do not manage timelines, coordinate the full event, or act as an event planner. Once vendors are booked, they handle their own setup, scheduling, and execution.
-  </p>
+<h3 className="cardTitle">How is this different from a coordinator?</h3>
+<p className="cardText">
+  Coordinators manage your event timeline and execution. Gulf Coast Event Hub helps you find and book the right vendors quickly.
+  Many customers use us to build their vendor team first, then decide if they want a coordinator to manage the event.
+</p>
 </div>
 
             <div className="faqCard">
               <h3 className="cardTitle">What happens after I submit a request?</h3>
               <p className="cardText">
-                We review your request, match you with vendors that fit your needs, and handle the booking process. After booking, vendors coordinate directly with you for service details.
-              </p>
+  After you submit your request, we review your details and build a quote based on your event, date, and services needed. 
+  Once you approve the quote, we move forward with securing vendors that match your event.
+  
+  You’ll always know what to expect before anything is booked, and vendors coordinate directly with you after booking for final details, scheduling, and execution.
+</p>
             </div>
 
             <div className="faqCard">
