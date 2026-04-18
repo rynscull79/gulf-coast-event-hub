@@ -326,11 +326,10 @@ trackEvent('lead_form_submit', {
             />
           </div>
 
-        <nav className="nav">
+          <nav className="nav">
   <a href="#how-it-works" className="navLink">How It Works</a>
   <a href="#services" className="navLink">Services</a>
   <a href="#request" className="navButton">Check Availability & Get Quote</a>
-
 </nav>
       </header>
 
@@ -369,7 +368,7 @@ trackEvent('lead_form_submit', {
   <a href="#how-it-works" className="secondaryButton">How It Works</a>
 </div>
 <p style={{ marginTop: "10px", fontSize: "14px", color: "#5F6B7A" }}>
-  Takes less than 60 seconds • No commitment required
+  Takes less than 60 seconds • See pricing before anything is booked
 </p>
 
 <div className="heroMiniList">
@@ -785,6 +784,11 @@ trackEvent('lead_form_submit', {
                 We will call you within 24 hours.
               </p>
 
+              <p className="sectionText" style={{ marginTop: "10px" }}>
+                Prefer to talk now? Call or text us at{" "}
+                <a href="tel:8507809757">(850) 780-9757</a>.
+              </p>
+
               <div className="disclaimerBox">
                 <strong>What to expect:</strong> Send us your question and a member of our team
                 will follow up by phone within 24 hours.
@@ -1046,11 +1050,14 @@ trackEvent('lead_form_submit', {
     alt="Gulf Coast Event Hub logo"
     className="footerLogo"
   />
-  <p className="footerText">
+   <p className="footerText">
     A simpler way to connect event customers with local Gulf Coast vendors.
   </p>
   <p className="footerServiceArea">
     Serving Pensacola, Pensacola Beach, Gulf Breeze, Pace, Fairhope, Daphne, Spanish Fort, Mobile, Gulf Shores, Orange Beach, and surrounding Gulf Coast areas.
+  </p>
+  <p className="footerText">
+    Call or text: <a href="tel:8507809757">(850) 780-9757</a>
   </p>
 </div>
 
@@ -1058,18 +1065,8 @@ trackEvent('lead_form_submit', {
       <a href="#how-it-works">How It Works</a>
       <a href="#services">Services</a>
       <a href="#request">Request Quote</a>
+            <a href="tel:8507809757">(850) 780-9757</a>
 
-      <a
-  href="mailto:infow@thirstydawgrentals.com?subject=Gulf%20Coast%20Event%20Hub%20Inquiry"
-  onClick={() =>
-    trackEvent('email_click', {
-      email_address: 'infow@thirstydawgrentals.com',
-      button_location: 'footer',
-    })
-  }
->
-  Send us a message
-</a>
      
     </div>
   </div>
